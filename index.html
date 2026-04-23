@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andrew Clair | Investigative Reporter & Data Developer</title>
-  <meta
-    name="description"
-    content="Portfolio of Andrew Clair: investigative reporting, public-records work, NLP pipelines, scrapers, mapping projects, and newsroom reporting."
+  <title>Andrew Clair | Projects</title>
+   <meta
+     name="description"
+    content="Portfolio of Andrew Clair: data tools, NLP systems, scrapers, mapping projects, and experimental software."
   >
   <style>
     :root {
@@ -85,7 +85,6 @@
     h1,
     h2,
     h3,
-    .stat-value,
     .project-link,
     .contact-links,
     .section-kicker {
@@ -132,13 +131,6 @@
       text-underline-offset: 0.2em;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1.4fr 0.9fr;
-      gap: 18px;
-      margin-top: 18px;
-    }
-
     .panel {
       padding: 26px;
       border: 1px solid var(--line);
@@ -153,32 +145,6 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent-strong);
-    }
-
-    .stats {
-      display: grid;
-      gap: 14px;
-    }
-
-    .stat {
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-    }
-
-    .stat:first-child {
-      padding-top: 0;
-      border-top: 0;
-    }
-
-    .stat-value {
-      display: block;
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-    }
-
-    .stat-label {
-      color: var(--muted);
     }
 
     main {
@@ -268,37 +234,6 @@
       font-weight: 700;
     }
 
-    .two-up {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .plain-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
-
-    .plain-list li {
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-    }
-
-    .plain-list li:first-child {
-      padding-top: 0;
-      border-top: 0;
-    }
-
-    .plain-list strong {
-      display: block;
-      margin-bottom: 4px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.98rem;
-    }
-
     .text-link {
       color: var(--accent);
       text-decoration: none;
@@ -313,9 +248,7 @@
     }
 
     @media (max-width: 920px) {
-      .grid,
-      .card-list,
-      .two-up {
+      .card-list {
         grid-template-columns: 1fr;
       }
 
@@ -351,44 +284,28 @@
 <body>
   <div class="page">
     <header class="hero">
-      <div class="eyebrow">Investigative reporting, data systems, public records</div>
+      <div class="eyebrow">Projects, experiments, and public-interest tools</div>
       <h1>Andrew Clair</h1>
-      <p class="subtitle">Investigative Reporter & Data Developer</p>
+      <p class="subtitle">Projects in data tooling, scraping, machine learning, and software experiments</p>
       <p class="lede">
-        I build scrapers to drag public records into daylight, train NLP pipelines to map narrative distortion,
-        and write the stories that fall out of the data. Fast, highly technical, and allergic to fluff.
+        This is a small collection of the systems I have built: NLP pipelines, OCR workflows,
+        interactive maps, retrieval tooling, and ongoing model-behavior experiments.
       </p>
       <div class="contact-links" aria-label="Contact links">
         <a href="mailto:anclair3@gmail.com">anclair3@gmail.com</a>
         <a href="https://github.com/gizmolotry" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://web.archive.org/web/20250714131545/https://www.limerickpost.ie/author/andrew-clair/" target="_blank" rel="noreferrer">Article archive</a>
         <span>Venice, Florida & Limerick, Ireland</span>
       </div>
     </header>
 
-    <section class="grid" aria-label="Overview">
+    <section aria-label="Overview">
       <div class="panel">
-        <p class="section-kicker">What I do</p>
+        <p class="section-kicker">About this site</p>
         <p>
-          Most of my work lives where reporting and systems-building overlap: freedom of information requests,
-          public-interest datasets, messy archives, automated extraction, mapping, clustering, and explainable NLP.
-          I care about tools that make institutions easier to inspect and harder to hide behind.
+          I like projects that turn messy information into something navigable. That usually means scraping,
+          classification, retrieval, visualization, or a custom pipeline stitched together for one exact problem.
         </p>
       </div>
-      <aside class="panel stats" aria-label="Key stats">
-        <div class="stat">
-          <span class="stat-value">110+</span>
-          <span class="stat-label">published articles in a live newsroom</span>
-        </div>
-        <div class="stat">
-          <span class="stat-value">1,800+</span>
-          <span class="stat-label">miles hiked on the Pacific Crest Trail</span>
-        </div>
-        <div class="stat">
-          <span class="stat-value">2026</span>
-          <span class="stat-label">expected B.A. graduation, Journalism & Communications</span>
-        </div>
-      </aside>
     </section>
 
     <main>
@@ -399,7 +316,7 @@
             <h2>Data & engineering projects</h2>
           </div>
           <p class="section-note">
-            Public-interest tooling, exploratory NLP, OCR, mapping, and long-haul archive work.
+            A mix of public-interest tooling, experimental NLP, OCR, mapping, and applied research.
           </p>
         </div>
         <div class="card-list">
@@ -417,18 +334,18 @@
             <p class="card-type">Geospatial / public health</p>
             <h3>UHL Trolley Crisis Data Map</h3>
             <p>
-              Interactive reporting project that visualizes hospital overcrowding and gives the public a clearer
-              picture of a prolonged systems failure in Limerick healthcare.
+              Interactive map built around hospital overcrowding data, turning a sprawling public-health problem
+              into something visible, geographic, and easier to inspect.
             </p>
             <a class="project-link" href="https://limerickvoice.com/health/trolley-crisis-university-hospital-limerick-data-map-overcrowding/" target="_blank" rel="noreferrer">View interactive feature</a>
           </article>
 
           <article class="card">
-            <p class="card-type">OCR / archives</p>
+            <p class="card-type">OCR / digitization</p>
             <h3>Limerick Voice OCR Pipeline</h3>
             <p>
-              Custom OCR workflow built to extract, clean, and digitize text from older print archives so the
-              material becomes searchable and reusable instead of dead paper.
+              Custom OCR workflow for extracting, cleaning, and digitizing print material so it becomes searchable,
+              reusable, and useful instead of trapped in scans.
             </p>
             <a class="project-link" href="https://gizmolotry.github.io/OCRlimvoice/" target="_blank" rel="noreferrer">Open web app</a>
           </article>
@@ -444,11 +361,11 @@
           </article>
 
           <article class="card">
-            <p class="card-type">Archives / semantic search</p>
+            <p class="card-type">Semantic search</p>
             <h3>1920s NLP Archive Analysis</h3>
             <p>
-              Historical newspaper scraping and FAISS-backed semantic search for tracing racial and rhetorical
-              bias across large archive collections without manually reading every page.
+              Historical newspaper scraping plus FAISS-backed semantic search for tracing patterns across large
+              corpora without manually reading every page.
             </p>
             <span class="project-link">Private research build</span>
           </article>
@@ -464,103 +381,10 @@
           </article>
         </div>
       </section>
-
-      <section class="section" id="reporting">
-        <div class="section-header">
-          <div>
-            <p class="section-kicker">Reporting</p>
-            <h2>Selected journalism</h2>
-          </div>
-          <p class="section-note">
-            Investigations, local accountability, and feature work with a strong data and systems angle.
-          </p>
-        </div>
-        <div class="card-list">
-          <article class="card">
-            <p class="card-type">Investigation</p>
-            <h3>Autistic people going without mental health help because of their condition</h3>
-            <p>
-              Reporting on structural gaps, service refusal, and the bureaucratic logic that leaves vulnerable
-              people stranded inside the Irish mental health system.
-            </p>
-            <a class="project-link" href="https://www.limerickpost.ie/2024/10/20/autistic-people-going-without-mental-health-help-because-of-their-condition/" target="_blank" rel="noreferrer">Read article</a>
-          </article>
-
-          <article class="card">
-            <p class="card-type">Feature</p>
-            <h3>How sports have shaped the nation for hundreds of years</h3>
-            <p>
-              A feature on how athletics and identity get braided together over time, and why sports history is
-              often political history wearing a different coat.
-            </p>
-            <a class="project-link" href="https://limerickvoice.com/sport/how-sports-have-shaped-the-nation-for-hundreds-of-years/" target="_blank" rel="noreferrer">Read feature</a>
-          </article>
-
-          <article class="card">
-            <p class="card-type">Archive</p>
-            <h3>Limerick Post author archive</h3>
-            <p>
-              Full archive of my published work at the paper, preserved via Wayback after the original author page
-              became unreliable.
-            </p>
-            <a class="project-link" href="https://web.archive.org/web/20250714131545/https://www.limerickpost.ie/author/andrew-clair/" target="_blank" rel="noreferrer">Browse archive</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <div>
-            <p class="section-kicker">Background</p>
-            <h2>Experience & tools</h2>
-          </div>
-          <p class="section-note">
-            Reporting discipline shaped by deadline pressure, source-building, and technical self-sufficiency.
-          </p>
-        </div>
-        <div class="two-up">
-          <div class="card">
-            <p class="card-type">Experience</p>
-            <h3>Staff Reporter, Limerick Post</h3>
-            <p>
-              Wrote more than 110 articles across local politics, community issues, and regional features while
-              building source networks from scratch and handling the full reporting-to-publication cycle.
-            </p>
-            <ul class="plain-list">
-              <li>
-                <strong>Education</strong>
-                University of Limerick, B.A. in Journalism & Communications, expected 2026.
-              </li>
-              <li>
-                <strong>Field endurance</strong>
-                Hiked 1,800+ miles of the Pacific Crest Trail. Good under pressure. Hard to rattle.
-              </li>
-            </ul>
-          </div>
-          <div class="card">
-            <p class="card-type">Toolbox</p>
-            <h3>Technical & editorial skills</h3>
-            <ul class="plain-list">
-              <li>
-                <strong>Data & code</strong>
-                Python, SQL, HTML/CSS/JS, Transformers, data pipelines, AI-assisted scripting and architecture.
-              </li>
-              <li>
-                <strong>Investigative methods</strong>
-                Web scraping, FOI requests, public-record collection, relational databases, FAISS, interactive mapping.
-              </li>
-              <li>
-                <strong>Newsroom production</strong>
-                AP Style, copy editing, high-volume interviewing, DSLR work, and 200+ hours in Adobe After Effects.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer>
-      For freelance work, newsroom roles, or collaboration:
+      For collaboration, experiments, or contract work:
       <a class="text-link" href="mailto:anclair3@gmail.com">email me</a>.
     </footer>
   </div>
