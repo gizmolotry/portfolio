@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrew Clair | Investigative Reporter & Data Developer</title>
+  <meta
+    name="description"
+    content="Portfolio of Andrew Clair: investigative reporting, public-records work, NLP pipelines, scrapers, mapping projects, and newsroom reporting."
+  >
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --surface: rgba(255, 252, 246, 0.92);
+      --surface-strong: #fffdf8;
+      --ink: #161616;
+      --muted: #5a564f;
+      --line: rgba(22, 22, 22, 0.11);
+      --accent: #0e4c92;
+      --accent-strong: #083564;
+      --shadow: 0 18px 45px rgba(34, 25, 12, 0.08);
+      --radius: 22px;
+      --max: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(14, 76, 146, 0.08), transparent 28%),
+        radial-gradient(circle at right 20%, rgba(166, 110, 64, 0.09), transparent 22%),
+        linear-gradient(180deg, #faf7f0 0%, #f4efe5 100%);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 36px;
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 6px);
+      background: linear-gradient(145deg, rgba(255, 253, 248, 0.96), rgba(247, 242, 233, 0.92));
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -70px -90px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14, 76, 146, 0.16), transparent 65%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    h1,
+    h2,
+    h3,
+    .stat-value,
+    .project-link,
+    .contact-links,
+    .section-kicker {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 11ch;
+      font-size: clamp(3rem, 8vw, 5.7rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+    }
+
+    .subtitle {
+      margin: 18px 0 10px;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--muted);
+    }
+
+    .lede {
+      max-width: 64ch;
+      margin: 22px 0 0;
+      font-size: 1.08rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 24px;
+      font-size: 0.98rem;
+    }
+
+    .contact-links a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    .contact-links a:hover,
+    .project-link:hover,
+    .text-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .panel {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .section-kicker {
+      margin: 0 0 14px;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    .stats {
+      display: grid;
+      gap: 14px;
+    }
+
+    .stat {
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .stat:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .stat-label {
+      color: var(--muted);
+    }
+
+    main {
+      margin-top: 22px;
+    }
+
+    .section {
+      margin-top: 18px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      letter-spacing: -0.05em;
+    }
+
+    .section-note {
+      max-width: 34ch;
+      margin: 0;
+      color: var(--muted);
+      text-align: right;
+      font-size: 0.98rem;
+    }
+
+    .card-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface-strong);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(14, 76, 146, 0.28);
+      box-shadow: 0 14px 30px rgba(34, 25, 12, 0.1);
+    }
+
+    .card-type {
+      margin: 0 0 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+
+    .card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      flex: 1;
+    }
+
+    .project-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .two-up {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .plain-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .plain-list li {
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .plain-list li:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .plain-list strong {
+      display: block;
+      margin-bottom: 4px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.98rem;
+    }
+
+    .text-link {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 20px;
+      padding: 24px 8px 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      .grid,
+      .card-list,
+      .two-up {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .section-note {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(calc(100% - 20px), var(--max));
+        padding-top: 10px;
+      }
+
+      .hero,
+      .panel,
+      .section {
+        padding: 22px 18px;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="eyebrow">Investigative reporting, data systems, public records</div>
+      <h1>Andrew Clair</h1>
+      <p class="subtitle">Investigative Reporter & Data Developer</p>
+      <p class="lede">
+        I build scrapers to drag public records into daylight, train NLP pipelines to map narrative distortion,
+        and write the stories that fall out of the data. Fast, highly technical, and allergic to fluff.
+      </p>
+      <div class="contact-links" aria-label="Contact links">
+        <a href="mailto:anclair3@gmail.com">anclair3@gmail.com</a>
+        <a href="https://github.com/gizmolotry" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://web.archive.org/web/20250714131545/https://www.limerickpost.ie/author/andrew-clair/" target="_blank" rel="noreferrer">Article archive</a>
+        <span>Venice, Florida & Limerick, Ireland</span>
+      </div>
+    </header>
+
+    <section class="grid" aria-label="Overview">
+      <div class="panel">
+        <p class="section-kicker">What I do</p>
+        <p>
+          Most of my work lives where reporting and systems-building overlap: freedom of information requests,
+          public-interest datasets, messy archives, automated extraction, mapping, clustering, and explainable NLP.
+          I care about tools that make institutions easier to inspect and harder to hide behind.
+        </p>
+      </div>
+      <aside class="panel stats" aria-label="Key stats">
+        <div class="stat">
+          <span class="stat-value">110+</span>
+          <span class="stat-label">published articles in a live newsroom</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">1,800+</span>
+          <span class="stat-label">miles hiked on the Pacific Crest Trail</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">2026</span>
+          <span class="stat-label">expected B.A. graduation, Journalism & Communications</span>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="section" id="projects">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Selected work</p>
+            <h2>Data & engineering projects</h2>
+          </div>
+          <p class="section-note">
+            Public-interest tooling, exploratory NLP, OCR, mapping, and long-haul archive work.
+          </p>
+        </div>
+        <div class="card-list">
+          <article class="card">
+            <p class="card-type">Machine learning / NLP</p>
+            <h3>Perspectival Bias Engine</h3>
+            <p>
+              Multi-stage NLI pipeline using DeBERTa embeddings to formalize semantic geometry and measure
+              media bias through adversarial framing rather than flat labels.
+            </p>
+            <a class="project-link" href="https://github.com/gizmolotry/SemanticInferometer" target="_blank" rel="noreferrer">View repository</a>
+          </article>
+
+          <article class="card">
+            <p class="card-type">Geospatial / public health</p>
+            <h3>UHL Trolley Crisis Data Map</h3>
+            <p>
+              Interactive reporting project that visualizes hospital overcrowding and gives the public a clearer
+              picture of a prolonged systems failure in Limerick healthcare.
+            </p>
+            <a class="project-link" href="https://limerickvoice.com/health/trolley-crisis-university-hospital-limerick-data-map-overcrowding/" target="_blank" rel="noreferrer">View interactive feature</a>
+          </article>
+
+          <article class="card">
+            <p class="card-type">OCR / archives</p>
+            <h3>Limerick Voice OCR Pipeline</h3>
+            <p>
+              Custom OCR workflow built to extract, clean, and digitize text from older print archives so the
+              material becomes searchable and reusable instead of dead paper.
+            </p>
+            <a class="project-link" href="https://gizmolotry.github.io/OCRlimvoice/" target="_blank" rel="noreferrer">Open web app</a>
+          </article>
+
+          <article class="card">
+            <p class="card-type">Housing accountability</p>
+            <h3>Derelict Homes Tracker</h3>
+            <p>
+              FOI-driven mapping work to force scattered municipal housing records into one public-facing,
+              legible view of dereliction and local government drift.
+            </p>
+            <span class="project-link">Available on request</span>
+          </article>
+
+          <article class="card">
+            <p class="card-type">Archives / semantic search</p>
+            <h3>1920s NLP Archive Analysis</h3>
+            <p>
+              Historical newspaper scraping and FAISS-backed semantic search for tracing racial and rhetorical
+              bias across large archive collections without manually reading every page.
+            </p>
+            <span class="project-link">Private research build</span>
+          </article>
+
+          <article class="card">
+            <p class="card-type">Model behavior research</p>
+            <h3>Belief-Anchored LoRA Module</h3>
+            <p>
+              Ongoing independent work exploring emotional failure modes, memory drift, and belief anchoring in
+              chatbot systems through targeted fine-tuning experiments.
+            </p>
+            <span class="project-link">In development</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="reporting">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Reporting</p>
+            <h2>Selected journalism</h2>
+          </div>
+          <p class="section-note">
+            Investigations, local accountability, and feature work with a strong data and systems angle.
+          </p>
+        </div>
+        <div class="card-list">
+          <article class="card">
+            <p class="card-type">Investigation</p>
+            <h3>Autistic people going without mental health help because of their condition</h3>
+            <p>
+              Reporting on structural gaps, service refusal, and the bureaucratic logic that leaves vulnerable
+              people stranded inside the Irish mental health system.
+            </p>
+            <a class="project-link" href="https://www.limerickpost.ie/2024/10/20/autistic-people-going-without-mental-health-help-because-of-their-condition/" target="_blank" rel="noreferrer">Read article</a>
+          </article>
+
+          <article class="card">
+            <p class="card-type">Feature</p>
+            <h3>How sports have shaped the nation for hundreds of years</h3>
+            <p>
+              A feature on how athletics and identity get braided together over time, and why sports history is
+              often political history wearing a different coat.
+            </p>
+            <a class="project-link" href="https://limerickvoice.com/sport/how-sports-have-shaped-the-nation-for-hundreds-of-years/" target="_blank" rel="noreferrer">Read feature</a>
+          </article>
+
+          <article class="card">
+            <p class="card-type">Archive</p>
+            <h3>Limerick Post author archive</h3>
+            <p>
+              Full archive of my published work at the paper, preserved via Wayback after the original author page
+              became unreliable.
+            </p>
+            <a class="project-link" href="https://web.archive.org/web/20250714131545/https://www.limerickpost.ie/author/andrew-clair/" target="_blank" rel="noreferrer">Browse archive</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Background</p>
+            <h2>Experience & tools</h2>
+          </div>
+          <p class="section-note">
+            Reporting discipline shaped by deadline pressure, source-building, and technical self-sufficiency.
+          </p>
+        </div>
+        <div class="two-up">
+          <div class="card">
+            <p class="card-type">Experience</p>
+            <h3>Staff Reporter, Limerick Post</h3>
+            <p>
+              Wrote more than 110 articles across local politics, community issues, and regional features while
+              building source networks from scratch and handling the full reporting-to-publication cycle.
+            </p>
+            <ul class="plain-list">
+              <li>
+                <strong>Education</strong>
+                University of Limerick, B.A. in Journalism & Communications, expected 2026.
+              </li>
+              <li>
+                <strong>Field endurance</strong>
+                Hiked 1,800+ miles of the Pacific Crest Trail. Good under pressure. Hard to rattle.
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <p class="card-type">Toolbox</p>
+            <h3>Technical & editorial skills</h3>
+            <ul class="plain-list">
+              <li>
+                <strong>Data & code</strong>
+                Python, SQL, HTML/CSS/JS, Transformers, data pipelines, AI-assisted scripting and architecture.
+              </li>
+              <li>
+                <strong>Investigative methods</strong>
+                Web scraping, FOI requests, public-record collection, relational databases, FAISS, interactive mapping.
+              </li>
+              <li>
+                <strong>Newsroom production</strong>
+                AP Style, copy editing, high-volume interviewing, DSLR work, and 200+ hours in Adobe After Effects.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      For freelance work, newsroom roles, or collaboration:
+      <a class="text-link" href="mailto:anclair3@gmail.com">email me</a>.
+    </footer>
+  </div>
+</body>
+</html>
