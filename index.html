@@ -188,6 +188,12 @@
       gap: 16px;
     }
 
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
     .card {
       display: flex;
       flex-direction: column;
@@ -234,6 +240,25 @@
       font-weight: 700;
     }
 
+    .embed-shell {
+      position: relative;
+      width: 100%;
+      padding-top: 62.5%;
+      margin-top: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #f1ece2;
+    }
+
+    .embed-shell iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
     .text-link {
       color: var(--accent);
       text-decoration: none;
@@ -248,7 +273,8 @@
     }
 
     @media (max-width: 920px) {
-      .card-list {
+      .card-list,
+      .feature-grid {
         grid-template-columns: 1fr;
       }
 
@@ -352,22 +378,22 @@
 
           <article class="card">
             <p class="card-type">Housing accountability</p>
-            <h3>Derelict Homes Tracker</h3>
+            <h3>Council Housing Vacancy Map</h3>
             <p>
-              FOI-driven mapping work to force scattered municipal housing records into one public-facing,
-              legible view of dereliction and local government drift.
+              Interactive council housing map built to make vacancy data legible instead of burying it in scattered,
+              half-usable records.
             </p>
-            <span class="project-link">Available on request</span>
+            <a class="project-link" href="https://gizmolotry.github.io/vacancyhouses/" target="_blank" rel="noreferrer">Open map</a>
           </article>
 
           <article class="card">
             <p class="card-type">Semantic search</p>
-            <h3>1920s NLP Archive Analysis</h3>
+            <h3>Limerick Newspapers Before Census</h3>
             <p>
-              Historical newspaper scraping plus FAISS-backed semantic search for tracing patterns across large
-              corpora without manually reading every page.
+              Archive history build exploring older Limerick newspaper material through a browsable, web-first interface
+              instead of leaving it trapped in raw source fragments.
             </p>
-            <span class="project-link">Private research build</span>
+            <a class="project-link" href="https://gizmolotry.github.io/limerick-newspapers-before-census/" target="_blank" rel="noreferrer">Open project</a>
           </article>
 
           <article class="card">
@@ -378,6 +404,61 @@
               chatbot systems through targeted fine-tuning experiments.
             </p>
             <span class="project-link">In development</span>
+          </article>
+
+          <article class="card">
+            <p class="card-type">Publication hub</p>
+            <h3>Limerick Voice Author Page</h3>
+            <p>
+              A clean entry point to the Limerick Voice work, useful as a public-facing archive without turning this
+              whole site back into a resume.
+            </p>
+            <a class="project-link" href="https://limerickvoice.com/author/andrew-clair/" target="_blank" rel="noreferrer">Open author page</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="previews">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">Live previews</p>
+            <h2>Embedded project views</h2>
+          </div>
+          <p class="section-note">
+            Two of the public-facing builds, embedded directly instead of reduced to a dead link.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="card">
+            <p class="card-type">Archive interface</p>
+            <h3>Limerick Newspapers Before Census</h3>
+            <p>
+              Historical archive interface focused on pre-census newspaper material from Limerick.
+            </p>
+            <div class="embed-shell">
+              <iframe
+                src="https://gizmolotry.github.io/limerick-newspapers-before-census/"
+                loading="lazy"
+                allowfullscreen
+                title="Limerick Newspapers Before Census preview"
+              ></iframe>
+            </div>
+          </article>
+
+          <article class="card">
+            <p class="card-type">Housing map</p>
+            <h3>Council Housing Vacancy Map</h3>
+            <p>
+              Public-facing vacancy map for council housing data, embedded directly on the portfolio page.
+            </p>
+            <div class="embed-shell">
+              <iframe
+                src="https://gizmolotry.github.io/vacancyhouses/"
+                loading="lazy"
+                allowfullscreen
+                title="Council Housing Vacancy Map preview"
+              ></iframe>
+            </div>
           </article>
         </div>
       </section>
